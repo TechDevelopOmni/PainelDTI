@@ -1,0 +1,25 @@
+@page
+@model PainelDTI.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="login-box">
+    <h1>Acesso ao Painel DTI</h1>
+    <p>Usuário padrão: <strong>admin</strong> | Senha: <strong>123456</strong></p>
+
+    <form method="post">
+        <label asp-for="Input.Usuario"></label>
+        <input asp-for="Input.Usuario" />
+
+        <label asp-for="Input.Senha"></label>
+        <input asp-for="Input.Senha" type="password" />
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Erro))
+    {
+        <p class="error">@Model.Erro</p>
+    }
+</section>

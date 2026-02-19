@@ -1,0 +1,100 @@
+:root {
+    color-scheme: light;
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --primary: #0f766e;
+    --text: #111827;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+}
+
+.app-shell { display: flex; min-height: 100vh; }
+.sidebar {
+    width: 250px;
+    background: #0b1324;
+    color: #fff;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.sidebar nav { display: flex; flex-direction: column; gap: .4rem; }
+.sidebar a {
+    color: #dbeafe;
+    text-decoration: none;
+    padding: .55rem .65rem;
+    border-radius: .45rem;
+}
+.sidebar a:hover { background: #1f2937; }
+.sidebar button {
+    width: 100%;
+    border: 0;
+    border-radius: .45rem;
+    padding: .6rem;
+    cursor: pointer;
+    background: #dc2626;
+    color: #fff;
+}
+.user { font-size: .9rem; opacity: .85; }
+.content { flex: 1; padding: 2rem; }
+.auth-content {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+.card {
+    background: var(--surface);
+    border-radius: .75rem;
+    padding: 1rem;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, .06);
+}
+.card small { opacity: .7; }
+.badge-success { color: #15803d; font-weight: 600; }
+.badge-warning { color: #b45309; font-weight: 600; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: var(--surface);
+    border-radius: .75rem;
+    overflow: hidden;
+}
+th, td { padding: .8rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
+
+.login-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: .75rem;
+    width: min(420px, 100%);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, .1);
+}
+.login-box input {
+    width: 100%;
+    padding: .65rem;
+    border-radius: .45rem;
+    border: 1px solid #cbd5e1;
+    margin: .35rem 0 1rem;
+}
+.login-box button {
+    width: 100%;
+    background: var(--primary);
+    border: 0;
+    color: white;
+    border-radius: .45rem;
+    padding: .7rem;
+    cursor: pointer;
+}
+.error { color: #dc2626; margin-top: .75rem; }

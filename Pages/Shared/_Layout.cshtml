@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Painel DTI</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="app-shell">
+        <aside class="sidebar">
+            <h2>Painel DTI</h2>
+            <span class="user">@User.Identity?.Name</span>
+            <nav>
+                <a asp-page="/Index">Visão geral</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="financeiro">Financeiro</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="comercial">Comercial</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="operacoes">Operações</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="rh">RH</a>
+            </nav>
+            <form method="post" asp-page="/Logout">
+                <button type="submit">Sair</button>
+            </form>
+        </aside>
+        <main class="content">
+            @RenderBody()
+        </main>
+    </div>
+}
+else
+{
+    <main class="auth-content">
+        @RenderBody()
+    </main>
+}
+</body>
+</html>

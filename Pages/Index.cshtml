@@ -1,0 +1,18 @@
+@page
+@model PainelDTI.Pages.IndexModel
+@{
+    ViewData["Title"] = "Visão geral";
+}
+
+<h1>Visão geral da empresa</h1>
+<p>Selecione uma área no menu lateral para ver o dashboard detalhado.</p>
+
+<div class="card-grid">
+    @foreach (var area in Model.Areas)
+    {
+        <article class="card">
+            <h3>@area.Nome</h3>
+            <a asp-page="/Dashboards/Area" asp-route-id="@area.Id">Abrir dashboard</a>
+        </article>
+    }
+</div>

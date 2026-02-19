@@ -1,0 +1,37 @@
+@page "{id?}"
+@model PainelDTI.Pages.Dashboards.AreaModel
+@{
+    ViewData["Title"] = $"Dashboard - {Model.Dados.Nome}";
+}
+
+<h1>@Model.Dados.Nome</h1>
+<p>@Model.Dados.Descricao</p>
+
+<div class="card-grid">
+    @foreach (var kpi in Model.Dados.Kpis)
+    {
+        <article class="card">
+            <small>@kpi.Titulo</small>
+            <h3>@kpi.Valor</h3>
+            <span class="badge-@kpi.Cor">@kpi.Variacao</span>
+        </article>
+    }
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Categoria</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var ponto in Model.Dados.Serie)
+    {
+        <tr>
+            <td>@ponto.Categoria</td>
+            <td>@ponto.Valor</td>
+        </tr>
+    }
+    </tbody>
+</table>
