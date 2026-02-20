@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Painel DTI</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="app-shell" id="app-shell">
+        <aside class="sidebar" id="sidebar">
+            <h2>Painel DTI</h2>
+            <span class="user">@User.Identity?.Name</span>
+
+            <div class="theme-switcher">
+                <label for="theme-select">Tema</label>
+                <select id="theme-select" aria-label="Escolha o tema do conteúdo principal">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+
+            <nav>
+                <a asp-page="/Index">Principal</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="financeiro">Financeiro</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="comercial">Comercial</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="operacoes">Operações</a>
+                <a asp-page="/Dashboards/Area" asp-route-id="rh">RH</a>
+            </nav>
+            <form method="post" asp-page="/Logout">
+                <button type="submit">Sair</button>
+            </form>
+        </aside>
+        <main class="content">
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="true" title="Mostrar/Ocultar menu">
+                ☰
+            </button>
+            @RenderBody()
+        </main>
+    </div>
+}
+else
+{
+    <main class="auth-content">
+        @RenderBody()
+    </main>
+}
+<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
