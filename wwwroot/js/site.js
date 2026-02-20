@@ -1,24 +1,46 @@
 (() => {
-    const button = document.getElementById('menu-toggle');
-
-    if (!button) {
-        return;
-    }
+    const menuButton = document.getElementById('menu-toggle');
+    const themeSelect = document.getElementById('theme-select');
 
     const collapseClass = 'sidebar-collapsed';
-    const storageKey = 'painel-menu-collapsed';
+    const themeDarkClass = 'theme-dark';
+    const menuStorageKey = 'painel-menu-collapsed';
+    const themeStorageKey = 'painel-theme';
 
-    const applyState = (collapsed) => {
+    const applyMenuState = (collapsed) => {
         document.body.classList.toggle(collapseClass, collapsed);
-        button.setAttribute('aria-expanded', (!collapsed).toString());
+        if (menuButton) {
+            menuButton.setAttribute('aria-expanded', (!collapsed).toString());
+        }
     };
 
-    const saved = localStorage.getItem(storageKey) === 'true';
-    applyState(saved);
+    const applyTheme = (theme) => {
+        const isDark = theme === 'dark';
+        document.body.classList.toggle(themeDarkClass, isDark);
+        if (themeSelect) {
+            themeSelect.value = isDark ? 'dark' : 'light';
+        }
+    };
 
-    button.addEventListener('click', () => {
-        const collapsed = !document.body.classList.contains(collapseClass);
-        applyState(collapsed);
-        localStorage.setItem(storageKey, collapsed.toString());
-    });
+    const savedMenuCollapsed = localStorage.getItem(menuStorageKey) === 'true';
+    applyMenuState(savedMenuCollapsed);
+
+    const savedTheme = localStorage.getItem(themeStorageKey) || 'light';
+    applyTheme(savedTheme);
+
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            const collapsed = !document.body.classList.contains(collapseClass);
+            applyMenuState(collapsed);
+            localStorage.setItem(menuStorageKey, collapsed.toString());
+        });
+    }
+
+    if (themeSelect) {
+        themeSelect.addEventListener('change', () => {
+            const theme = themeSelect.value === 'dark' ? 'dark' : 'light';
+            applyTheme(theme);
+            localStorage.setItem(themeStorageKey, theme);
+        });
+    }
 })();

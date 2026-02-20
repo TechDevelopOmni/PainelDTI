@@ -13,6 +13,15 @@
         <aside class="sidebar" id="sidebar">
             <h2>Painel DTI</h2>
             <span class="user">@User.Identity?.Name</span>
+
+            <div class="theme-switcher">
+                <label for="theme-select">Tema</label>
+                <select id="theme-select" aria-label="Escolha o tema do conteúdo principal">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+
             <nav>
                 <a asp-page="/Index">Visão geral</a>
                 <a asp-page="/Dashboards/Area" asp-route-id="financeiro">Financeiro</a>
