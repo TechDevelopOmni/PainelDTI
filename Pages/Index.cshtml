@@ -13,7 +13,7 @@
 <p>Dados simulados para MVP até integração com backend WBA/API.</p>
 
 <section class="dash-section">
-    <h2>🟦 Bloco 1 — Visão Geral</h2>
+    <h2>🟦 Visão Geral</h2>
     <div class="kpi-grid">
         <article class="card kpi-main"><h3>🎯 Meta do Trimestre</h3><strong>@Model.MetaTrimestre.ToString("C0")</strong></article>
         <article class="card kpi-main"><h3>📈 Produção Realizada (MTD)</h3><strong>@Model.ProducaoMtd.ToString("C0")</strong></article>
@@ -24,7 +24,7 @@
 </section>
 
 <section class="dash-section">
-    <h2>🟦 Bloco 2 — Produção Operacional (Relatório 1)</h2>
+    <h2>🟦 Produção Operacional (Relatório 1)</h2>
     <p>Fonte alvo: Gerencia &gt; Operações &gt; C. Própria &gt; Aquisições no Período (Resumo).</p>
     <div class="chart-grid">
         <article class="card"><h3>📅 Produção por Dia</h3><canvas id="chartProducaoDia"></canvas></article>
@@ -35,7 +35,7 @@
 </section>
 
 <section class="dash-section">
-    <h2>🟦 Bloco 3 — Projeção Financeira (Relatório 2)</h2>
+    <h2>🟦 Projeção Financeira (Relatório 2)</h2>
     <p>Fonte alvo: Contas &gt; Cedente &gt; Mapa de Contas a Receber.</p>
     <div class="kpi-grid finance-grid">
         @foreach (var item in Model.Carteira)
@@ -44,11 +44,11 @@
         }
         <article class="card"><h3>% Inadimplência</h3><strong>@Model.InadimplenciaPercentual%</strong></article>
     </div>
-    <article class="card"><h3>Status da carteira</h3><canvas id="chartCarteira"></canvas></article>
+    <article class="card"><h3>Status da carteira</h3><canvas id="chartCarteira" ></canvas></article>
 </section>
 
 <section class="dash-section">
-    <h2>🟦 Bloco 4 — Concentração por Cedente</h2>
+    <h2>🟦 Concentração por Cedente</h2>
     <div class="chart-grid">
         <article class="card"><h3>Pareto 80/20</h3><canvas id="chartPareto"></canvas></article>
         <article class="card"><h3>Top 10 Cedentes</h3><canvas id="chartTopCedentes"></canvas></article>

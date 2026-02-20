@@ -201,3 +201,8 @@ th, td { padding: .8rem; text-align: left; border-bottom: 1px solid var(--border
 .risk-yellow { background: rgba(245, 158, 11, .25); }
 .risk-green { background: rgba(34, 197, 94, .2); }
 .risk-blue { background: rgba(14, 165, 233, .2); }
+
+#chartCarteira {
+    max-height:580px;
+    max-height:580px;
+}
