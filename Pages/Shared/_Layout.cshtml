@@ -9,8 +9,8 @@
 <body>
 @if (User.Identity?.IsAuthenticated == true)
 {
-    <div class="app-shell">
-        <aside class="sidebar">
+    <div class="app-shell" id="app-shell">
+        <aside class="sidebar" id="sidebar">
             <h2>Painel DTI</h2>
             <span class="user">@User.Identity?.Name</span>
             <nav>
@@ -25,6 +25,9 @@
             </form>
         </aside>
         <main class="content">
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="true" title="Mostrar/Ocultar menu">
+                ☰
+            </button>
             @RenderBody()
         </main>
     </div>
@@ -35,5 +38,6 @@ else
         @RenderBody()
     </main>
 }
+<script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
