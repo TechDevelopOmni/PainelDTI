@@ -152,3 +152,52 @@ th, td { padding: .8rem; text-align: left; border-bottom: 1px solid var(--border
     cursor: pointer;
 }
 .error { color: #ef4444; margin-top: .75rem; }
+
+.dash-section {
+    margin-bottom: 2rem;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.kpi-main strong {
+    font-size: 1.4rem;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.highlight-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.finance-grid {
+    margin-bottom: 1rem;
+}
+
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+}
+
+.heatmap-item {
+    border-radius: .5rem;
+    padding: .7rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.risk-red { background: rgba(220, 38, 38, .2); }
+.risk-yellow { background: rgba(245, 158, 11, .25); }
+.risk-green { background: rgba(34, 197, 94, .2); }
+.risk-blue { background: rgba(14, 165, 233, .2); }
