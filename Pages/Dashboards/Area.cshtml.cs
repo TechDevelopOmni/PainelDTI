@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PainelDTI.Authorization;
 using PainelDTI.Models;
 using PainelDTI.Services;
 
@@ -9,8 +10,15 @@ public class AreaModel(IMockDashboardService service) : PageModel
 {
     public DashboardData Dados { get; private set; } = default!;
 
-    public void OnGet(string? id)
+    public IActionResult OnGet(string? id)
     {
-        Dados = service.GetByArea(id ?? "financeiro");
+        var areaId = id ?? "financeiro";
+        if (!AccessRules.PodeAcessarTela(User, areaId))
+        {
+            return Forbid();
+        }
+
+        Dados = service.GetByArea(areaId);
+        return Page();
     }
 }

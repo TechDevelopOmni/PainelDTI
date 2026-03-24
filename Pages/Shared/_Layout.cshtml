@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@using PainelDTI.Authorization
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
@@ -23,11 +24,34 @@
             </div>
 
             <nav>
-                <a asp-page="/Index">Diretoria</a>
-                <a asp-page="/Dashboards/Area" asp-route-id="financeiro">Financeiro</a>
-                <a asp-page="/Dashboards/Area" asp-route-id="comercial">Comercial</a>
-                <a asp-page="/Dashboards/Area" asp-route-id="operacoes">Operações</a>
-                <a asp-page="/Dashboards/Area" asp-route-id="rh">RH</a>
+                @if (AccessRules.PodeAcessarTela(User, "index"))
+                {
+                    <a asp-page="/Index">Diretoria</a>
+                }
+                @if (AccessRules.PodeAcessarTela(User, "financeiro"))
+                {
+                    <a asp-page="/Dashboards/Area" asp-route-id="financeiro">Financeiro</a>
+                }
+                @if (AccessRules.PodeAcessarTela(User, "comercial"))
+                {
+                    <a asp-page="/Dashboards/Area" asp-route-id="comercial">Comercial</a>
+                }
+                @if (AccessRules.PodeAcessarTela(User, "operacoes"))
+                {
+                    <a asp-page="/Dashboards/Area" asp-route-id="operacoes">Operações</a>
+                }
+                @if (AccessRules.PodeAcessarTela(User, "rh"))
+                {
+                    <a asp-page="/Dashboards/Area" asp-route-id="rh">RH</a>
+                }
+                @if (AccessRules.PodeAcessarTela(User, "juridico"))
+                {
+                    <a asp-page="/Dashboards/Area" asp-route-id="juridico">Jurídico</a>
+                }
+                @if (AccessRules.PodeAcessarTela(User, "marketing"))
+                {
+                    <a asp-page="/Dashboards/Area" asp-route-id="marketing">Marketing</a>
+                }
             </nav>
             <form method="post" asp-page="/Logout">
                 <button type="submit">Sair</button>
