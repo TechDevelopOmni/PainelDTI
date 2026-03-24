@@ -32,10 +32,10 @@ public static class AccessRules
         }
 
         var regrasUsuario = ObterRegrasUsuario(user);
-        return regrasUsuario.Overlaps(regrasPermitidas);
+        return regrasUsuario.Any(regra => regrasPermitidas.Contains(regra));
     }
 
-    public static IReadOnlyCollection<int> ObterRegrasUsuario(ClaimsPrincipal user)
+    public static HashSet<int> ObterRegrasUsuario(ClaimsPrincipal user)
     {
         var regras = user.FindAll(RegraClaimType)
             .Select(claim => int.TryParse(claim.Value, out var regra) ? regra : (int?)null)
