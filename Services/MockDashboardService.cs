@@ -66,6 +66,36 @@ public sealed class MockDashboardService : IMockDashboardService
             [
                 new("Q1", 63), new("Q2", 68), new("Q3", 70), new("Q4", 71)
             ]
+        },
+        ["juridico"] = new DashboardData
+        {
+            Nome = "Jurídico",
+            Descricao = "Controle de contratos, pareceres e contencioso.",
+            Kpis =
+            [
+                new("Contratos revisados", "128", "+11%", "success"),
+                new("Pareceres emitidos", "74", "+6%", "success"),
+                new("Processos ativos", "19", "-2", "success")
+            ],
+            Serie =
+            [
+                new("Contratos", 128), new("Aditivos", 47), new("Pareceres", 74), new("Acordos", 12)
+            ]
+        },
+        ["marketing"] = new DashboardData
+        {
+            Nome = "Marketing",
+            Descricao = "Performance de campanhas e geração de demanda.",
+            Kpis =
+            [
+                new("MQLs", "512", "+14,2%", "success"),
+                new("CAC", "R$ 1.920", "-5,4%", "success"),
+                new("ROAS", "4,3x", "+0,6x", "success")
+            ],
+            Serie =
+            [
+                new("Orgânico", 210), new("Pago", 188), new("Social", 76), new("Eventos", 38)
+            ]
         }
     };
 

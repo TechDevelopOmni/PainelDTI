@@ -1,9 +1,21 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PainelDTI.Authorization;
 
 namespace PainelDTI.Pages;
 
 public class IndexModel : PageModel
 {
+    public IActionResult OnGet()
+    {
+        if (!AccessRules.PodeAcessarTela(User, "index"))
+        {
+            return Forbid();
+        }
+
+        return Page();
+    }
+
     public decimal MetaTrimestre { get; } = 1_200_000m;
     public IReadOnlyList<(string Dia, decimal Valor)> ProducaoPorDia { get; } =
     [
