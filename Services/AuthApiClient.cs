@@ -38,7 +38,16 @@ public sealed class AuthApiClient(HttpClient httpClient, IOptions<AuthApiOptions
             return LoginApiResult.Fail(message);
         }
 
-        var payload = await response.Content.ReadFromJsonAsync<LoginApiResponse>(JsonOptions, cancellationToken);
+        LoginApiResponse? payload;
+        try
+        {
+            payload = await response.Content.ReadFromJsonAsync<LoginApiResponse>(JsonOptions, cancellationToken);
+        }
+        catch (JsonException)
+        {
+            return LoginApiResult.Fail("Resposta inválida da API de autenticação.");
+        }
+
         if (payload is null || payload.User is null || string.IsNullOrWhiteSpace(payload.AccessToken))
         {
             return LoginApiResult.Fail("Resposta inválida da API de autenticação.");
@@ -47,7 +56,7 @@ public sealed class AuthApiClient(HttpClient httpClient, IOptions<AuthApiOptions
         return LoginApiResult.Success(
             payload.User.FullName,
             payload.User.Email,
-            payload.User.UserType,
+            payload.User.GetUserTypeValue(),
             payload.AccessToken,
             payload.ExpiresAtUtc);
     }
@@ -86,5 +95,17 @@ public sealed class LoginApiUserResponse
     public string FullName { get; init; } = string.Empty;
     public string Email { get; init; } = string.Empty;
     public bool IsActive { get; init; }
-    public string UserType { get; init; } = string.Empty;
+    public JsonElement UserType { get; init; }
+
+    public string GetUserTypeValue()
+    {
+        return UserType.ValueKind switch
+        {
+            JsonValueKind.String => UserType.GetString() ?? string.Empty,
+            JsonValueKind.Number => UserType.GetRawText(),
+            JsonValueKind.True => bool.TrueString,
+            JsonValueKind.False => bool.FalseString,
+            _ => string.Empty
+        };
+    }
 }

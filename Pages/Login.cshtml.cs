@@ -44,9 +44,13 @@ public class LoginModel(IAuthApiClient authApiClient) : PageModel
         var claims = new List<Claim>
         {
             new(ClaimTypes.Name, loginResult.FullName ?? Input.Email),
-            new(ClaimTypes.Email, loginResult.Email ?? Input.Email),
-            new(ClaimTypes.Role, loginResult.UserType ?? string.Empty)
+            new(ClaimTypes.Email, loginResult.Email ?? Input.Email)
         };
+
+        if (!string.IsNullOrWhiteSpace(loginResult.UserType))
+        {
+            claims.Add(new Claim(ClaimTypes.Role, loginResult.UserType));
+        }
 
         if (!string.IsNullOrWhiteSpace(loginResult.AccessToken))
         {
