@@ -28,6 +28,21 @@
                 <a asp-page="/Dashboards/Area" asp-route-id="comercial">Comercial</a>
                 <a asp-page="/Dashboards/Area" asp-route-id="operacoes">Operações</a>
                 <a asp-page="/Dashboards/Area" asp-route-id="rh">RH</a>
+
+                @if (User.IsInRole("1"))
+                {
+                    <a asp-page="/UserTypes/Tipo1">Página UserType 1</a>
+                }
+
+                @if (User.IsInRole("2"))
+                {
+                    <a asp-page="/UserTypes/Tipo2">Página UserType 2</a>
+                }
+
+                @if (User.IsInRole("3"))
+                {
+                    <a asp-page="/UserTypes/Tipo3">Página UserType 3</a>
+                }
             </nav>
             <form method="post" asp-page="/Logout">
                 <button type="submit">Sair</button>
