@@ -30,6 +30,7 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.Configure<AuthApiOptions>(builder.Configuration.GetSection("AuthApi"));
 builder.Services.AddHttpClient<IAuthApiClient, AuthApiClient>();
+builder.Services.AddHttpClient<IOperationsAnalyticsApiClient, OperationsAnalyticsApiClient>();
 
 builder.Services.AddSingleton<IMockDashboardService, MockDashboardService>();
 
