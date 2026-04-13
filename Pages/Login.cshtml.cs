@@ -5,11 +5,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PainelDTI.Services;
 
 namespace PainelDTI.Pages;
 
 [AllowAnonymous]
-public class LoginModel : PageModel
+public class LoginModel(IAuthApiClient authApiClient) : PageModel
 {
     [BindProperty]
     public InputModel Input { get; set; } = new();
@@ -26,28 +27,47 @@ public class LoginModel : PageModel
         return Page();
     }
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        if (Input.Usuario != "admin" || Input.Senha != "123456")
+        var loginResult = await authApiClient.LoginAsync(Input.Email, Input.Senha, cancellationToken);
+        if (!loginResult.Succeeded)
         {
-            Erro = "Usuário ou senha inválidos.";
+            Erro = loginResult.Error ?? "Usuário ou senha inválidos.";
             return Page();
         }
 
         var claims = new List<Claim>
         {
-            new(ClaimTypes.Name, "Administrador")
+            new(ClaimTypes.Name, loginResult.FullName ?? Input.Email),
+            new(ClaimTypes.Email, loginResult.Email ?? Input.Email)
         };
+
+        if (!string.IsNullOrWhiteSpace(loginResult.UserType))
+        {
+            claims.Add(new Claim(ClaimTypes.Role, loginResult.UserType));
+        }
+
+        if (!string.IsNullOrWhiteSpace(loginResult.AccessToken))
+        {
+            claims.Add(new Claim("access_token", loginResult.AccessToken));
+        }
 
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         var principal = new ClaimsPrincipal(identity);
 
-        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        var authProperties = new AuthenticationProperties();
+        if (loginResult.ExpiresAtUtc.HasValue)
+        {
+            authProperties.ExpiresUtc = new DateTimeOffset(loginResult.ExpiresAtUtc.Value, TimeSpan.Zero);
+            authProperties.IsPersistent = true;
+        }
+
+        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
         return RedirectToPage("/Index");
     }
@@ -55,8 +75,9 @@ public class LoginModel : PageModel
     public sealed class InputModel
     {
         [Required]
-        [Display(Name = "Usuário")]
-        public string Usuario { get; set; } = string.Empty;
+        [EmailAddress]
+        [Display(Name = "E-mail")]
+        public string Email { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Senha")]

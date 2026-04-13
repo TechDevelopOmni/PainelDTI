@@ -1,0 +1,164 @@
+@page
+@model PainelDTI.Pages.UserTypes.Tipo1Model
+@{
+    ViewData["Title"] = "Painel de Operações";
+
+    var maxChartValue = Model.ChartData.Any() ? Model.ChartData.Max(item => item.Value) : 0m;
+}
+
+<section class="dash-section">
+    <h1>Painel de Operações (UserType 1)</h1>
+    <p>Fase 1 com endpoints atuais: diário, mensal e performance por cliente.</p>
+</section>
+
+<section class="card dash-section">
+    <form method="get" class="ops-filters">
+        <label>
+            Tipo de visão
+            <select name="ViewType" value="@Model.ViewType">
+                <option value="daily" selected="@(Model.ViewType == "daily")">Diário</option>
+                <option value="monthly" selected="@(Model.ViewType == "monthly")">Mensal</option>
+                <option value="clients" selected="@(Model.ViewType == "clients")">Clientes</option>
+            </select>
+        </label>
+
+        <label>
+            Data inicial
+            <input type="date" name="StartDate" value="@Model.StartDate?.ToString("yyyy-MM-dd")" />
+        </label>
+
+        <label>
+            Data final
+            <input type="date" name="EndDate" value="@Model.EndDate?.ToString("yyyy-MM-dd")" />
+        </label>
+
+        <label>
+            Ano
+            <input type="number" name="Year" min="2020" max="2100" value="@Model.Year" />
+        </label>
+
+        <label>
+            Busca por cliente
+            <input type="text" name="ClientSearch" value="@Model.ClientSearch" placeholder="Nome do cliente" />
+        </label>
+
+        <label>
+            Métrica do gráfico
+            <select name="Metric" value="@Model.Metric">
+                <option value="operations" selected="@(Model.Metric == "operations")">Operações</option>
+                <option value="faceValue" selected="@(Model.Metric == "faceValue")">Valor operado</option>
+                <option value="discount" selected="@(Model.Metric == "discount")">Deságio</option>
+                <option value="effectiveRate" selected="@(Model.Metric == "effectiveRate")">Taxa efetiva média</option>
+            </select>
+        </label>
+
+        <button type="submit">Aplicar filtros</button>
+    </form>
+</section>
+
+<section class="kpi-grid dash-section">
+    <article class="card kpi-main">
+        <small>Total de operações</small>
+        <strong>@Model.Summary.TotalOperations</strong>
+    </article>
+    <article class="card kpi-main">
+        <small>Valor operado</small>
+        <strong>@Model.Summary.TotalFaceValue.ToString("C")</strong>
+    </article>
+    <article class="card kpi-main">
+        <small>Deságio</small>
+        <strong>@Model.Summary.TotalDiscount.ToString("C")</strong>
+    </article>
+    <article class="card kpi-main">
+        <small>Taxa média</small>
+        <strong>@Model.Summary.AverageRate.ToString("N2")%</strong>
+    </article>
+</section>
+
+@if (Model.ViewType != "clients")
+{
+    <section class="card dash-section">
+        <h2>Gráfico principal (@Model.ViewType)</h2>
+        @if (!Model.ChartData.Any())
+        {
+            <p>Nenhum dado encontrado para o período selecionado.</p>
+        }
+        else
+        {
+            <div class="ops-chart">
+                @foreach (var point in Model.ChartData)
+                {
+                    var width = maxChartValue == 0 ? 0 : (point.Value / maxChartValue) * 100;
+                    <div class="ops-chart-row">
+                        <span>@point.Label</span>
+                        <div class="ops-chart-bar-wrap">
+                            <div class="ops-chart-bar" style="width:@width.ToString("N2", System.Globalization.CultureInfo.InvariantCulture)%"></div>
+                        </div>
+                        <strong>@point.Value.ToString("N2")</strong>
+                    </div>
+                }
+            </div>
+        }
+    </section>
+}
+
+<section class="card dash-section">
+    <h2>Performance por cliente</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Volume mês atual</th>
+            <th>Média últimos 3 meses</th>
+            <th>Abaixo do padrão</th>
+            <th>Acima do limite</th>
+            <th>Débito em aberto</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var client in Model.FilteredClients.OrderBy(item => item.ClientName))
+        {
+            <tr>
+                <td>@client.ClientName</td>
+                <td>@client.CurrentMonthVolume.ToString("C")</td>
+                <td>@client.AverageLast3Months.ToString("C")</td>
+                <td>@(client.IsBelowPattern ? "Sim" : "Não")</td>
+                <td>@(client.IsAboveLimit ? "Sim" : "Não")</td>
+                <td>@(client.HasOpenDebt ? "Sim" : "Não")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</section>
+
+<section class="chart-grid dash-section">
+    <article class="card">
+        <h3>Clientes abaixo do padrão</h3>
+        <ul>
+            @foreach (var client in Model.BelowPatternAlerts)
+            {
+                <li>@client.ClientName</li>
+            }
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>Clientes acima do limite</h3>
+        <ul>
+            @foreach (var client in Model.AboveLimitAlerts)
+            {
+                <li>@client.ClientName</li>
+            }
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>Clientes com débito em aberto</h3>
+        <ul>
+            @foreach (var client in Model.OpenDebtAlerts)
+            {
+                <li>@client.ClientName</li>
+            }
+        </ul>
+    </article>
+</section>

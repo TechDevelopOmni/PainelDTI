@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using PainelDTI.Services;
@@ -28,6 +27,10 @@ builder.Services.AddAuthorization(options =>
         .RequireAuthenticatedUser()
         .Build();
 });
+
+builder.Services.Configure<AuthApiOptions>(builder.Configuration.GetSection("AuthApi"));
+builder.Services.AddHttpClient<IAuthApiClient, AuthApiClient>();
+builder.Services.AddHttpClient<IOperationsAnalyticsApiClient, OperationsAnalyticsApiClient>();
 
 builder.Services.AddSingleton<IMockDashboardService, MockDashboardService>();
 
