@@ -7,8 +7,7 @@
 }
 
 <section class="dash-section">
-    <h1>Painel de Operações (UserType 1)</h1>
-    <p>Fase 1 com endpoints atuais: diário, mensal e performance por cliente.</p>
+    <h1>Painel de Operações V.1</h1>
 </section>
 
 <section class="card dash-section">
@@ -58,19 +57,19 @@
 
 <section class="kpi-grid dash-section">
     <article class="card kpi-main">
-        <small>Total de operações</small>
+        <small>📊Total de operações</small><br />
         <strong>@Model.Summary.TotalOperations</strong>
     </article>
     <article class="card kpi-main">
-        <small>Valor operado</small>
+        <small>💰Valor operado</small><br />
         <strong>@Model.Summary.TotalFaceValue.ToString("C")</strong>
     </article>
     <article class="card kpi-main">
-        <small>Deságio</small>
+        <small>💹Deságio</small><br />
         <strong>@Model.Summary.TotalDiscount.ToString("C")</strong>
     </article>
     <article class="card kpi-main">
-        <small>Taxa média</small>
+        <small>🎯Taxa média</small><br />
         <strong>@Model.Summary.AverageRate.ToString("N2")%</strong>
     </article>
 </section>

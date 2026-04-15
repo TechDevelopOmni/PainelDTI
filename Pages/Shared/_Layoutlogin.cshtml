@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Painel DTI</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
 </head>
-<body>
+<body class="bck-ground" style="padding:0px;">
 @if (User.Identity?.IsAuthenticated == true)
 {
     <div class="app-shell" id="app-shell">

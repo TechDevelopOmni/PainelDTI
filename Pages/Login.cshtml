@@ -2,23 +2,45 @@
 @model PainelDTI.Pages.LoginModel
 @{
     ViewData["Title"] = "Login";
+    Layout = "_Layoutlogin";
 }
 
-<section class="login-box">
-    <h1>Acesso ao Painel DTI</h1>
+<div class="login-container ">
+    <div class="login-card">
+        <div>
+            <img alt="" src="" />
+            <img alt="" src="" />
+        </div>
+        <div class="login-header">
+            <h1>Faça o login</h1>
+        </div>
 
-    <form method="post">
-        <label asp-for="Input.Email"></label>
-        <input asp-for="Input.Email" />
+        <div>
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Input.Email">Usuário</label>
+                    <div class="input-wrapper">
+                        <input asp-for="Input.Email" placeholder="Usuário" />
+                    </div>
+                </div>
 
-        <label asp-for="Input.Senha"></label>
-        <input asp-for="Input.Senha" type="password" />
+                <div class="form-group">
+                    <label asp-for="Input.Senha">Senha</label>
+                    <div class="input-wrapper">
+                        <input asp-for="Input.Senha" type="password" placeholder="Senha" />
+                    </div>
+                </div>
 
-        <button type="submit">Entrar</button>
-    </form>
+                <button type="submit" class="btn-login">LOGIN</button>
+            </form>
 
-    @if (!string.IsNullOrWhiteSpace(Model.Erro))
-    {
-        <p class="error">@Model.Erro</p>
-    }
-</section>
+            @if (!string.IsNullOrWhiteSpace(Model.Erro))
+            {
+                <div class="error-message">
+                    @Model.Erro
+                </div>
+            }
+        </div>
+    </div>
+    <h3 style="color:#6c757d;margin-top: 7vh;justify-self: center;">Power by OmniSaaS</h3>
+</div>
