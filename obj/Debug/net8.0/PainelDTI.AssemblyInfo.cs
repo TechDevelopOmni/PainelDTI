@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PainelDTI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a928fe6004906c3bb10dcf68c1e6abc5058f747d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c480461cfa5fb737c052c65423fe72bb47fbf1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("PainelDTI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PainelDTI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

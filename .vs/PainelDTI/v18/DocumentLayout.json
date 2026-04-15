@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\Source OmniSaaS\\PainelDTI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\pages\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:pages\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\pages\\painel\\operacoes.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:pages\\painel\\operacoes.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\wwwroot\\css\\stylesheet.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:wwwroot\\css\\stylesheet.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\services\\operationsanalyticsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:services\\operationsanalyticsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,40 +27,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layoutlogin.cshtml",
-              "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Shared\\_Layoutlogin.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Shared\\_Layoutlogin.cshtml",
-              "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Shared\\_Layoutlogin.cshtml",
-              "RelativeToolTip": "Pages\\Shared\\_Layoutlogin.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-15T12:18:26.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StyleSheet.css",
-              "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\wwwroot\\css\\StyleSheet.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\StyleSheet.css",
-              "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\wwwroot\\css\\StyleSheet.css",
-              "RelativeToolTip": "wwwroot\\css\\StyleSheet.css",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-15T12:00:47.908Z",
+              "Title": "Operacoes.cshtml.cs",
+              "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Painel\\Operacoes.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Painel\\Operacoes.cshtml.cs",
+              "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Painel\\Operacoes.cshtml.cs",
+              "RelativeToolTip": "Pages\\Painel\\Operacoes.cshtml.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAQwIoAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T12:43:41.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Login.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Login.cshtml",
-              "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Login.cshtml",
-              "RelativeToolTip": "Pages\\Login.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC0AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-15T12:00:26.916Z",
+              "Title": "OperationsAnalyticsApiClient.cs",
+              "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\Services\\OperationsAnalyticsApiClient.cs",
+              "RelativeDocumentMoniker": "Services\\OperationsAnalyticsApiClient.cs",
+              "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\Services\\OperationsAnalyticsApiClient.cs",
+              "RelativeToolTip": "Services\\OperationsAnalyticsApiClient.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAuwEcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T12:40:21.654Z",
               "EditorCaption": ""
             }
           ]

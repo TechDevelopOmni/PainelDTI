@@ -1,5 +1,5 @@
 wwwroot\css\site.css
+wwwroot\js\site.js
 wwwroot\css\StyleSheet.css
 wwwroot\img\loginbk.png
 wwwroot\img\logopainel.png
-wwwroot\js\site.js

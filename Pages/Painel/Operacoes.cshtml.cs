@@ -112,7 +112,7 @@ public class Tipo1Model(IOperationsAnalyticsApiClient analyticsApiClient) : Page
     {
         return data
             .OrderBy(item => item.Date)
-            .Select(item => new ChartBarPoint(item.Date.ToString("dd/MM"), ReadMetric(item.OperationsCount, item.TotalFaceValue, item.TotalDiscountValue, item.EffectiveAverageRate, metric)))
+            .Select(item => new ChartBarPoint(item.Date.ToString("dd/MM"), ReadMetric(item.OperationsCount, item.TotalFaceValue, item.TotalDiscountValue, item.AverageEffectiveRate, metric)))
             .ToList();
     }
 
@@ -121,7 +121,7 @@ public class Tipo1Model(IOperationsAnalyticsApiClient analyticsApiClient) : Page
         return data
             .OrderBy(item => item.Year)
             .ThenBy(item => item.Month)
-            .Select(item => new ChartBarPoint($"{item.Month:00}/{item.Year}", ReadMetric(item.OperationsCount, item.TotalFaceValue, item.TotalDiscountValue, item.EffectiveAverageRate, metric)))
+            .Select(item => new ChartBarPoint($"{item.Month:00}/{item.Year}", ReadMetric(item.OperationsCount, item.TotalFaceValue, item.TotalDiscountValue, item.AverageEffectiveRate, metric)))
             .ToList();
     }
 
@@ -149,7 +149,7 @@ public class Tipo1Model(IOperationsAnalyticsApiClient analyticsApiClient) : Page
                 list.Sum(item => item.OperationsCount),
                 list.Sum(item => item.TotalFaceValue),
                 list.Sum(item => item.TotalDiscountValue),
-                list.Count == 0 ? 0m : list.Average(item => item.EffectiveAverageRate));
+                list.Count == 0 ? 0m : list.Average(item => item.AverageEffectiveRate));
         }
 
         public static DashboardSummary FromMonthly(IEnumerable<MonthlyAnalyticsDto> data)
@@ -159,7 +159,7 @@ public class Tipo1Model(IOperationsAnalyticsApiClient analyticsApiClient) : Page
                 list.Sum(item => item.OperationsCount),
                 list.Sum(item => item.TotalFaceValue),
                 list.Sum(item => item.TotalDiscountValue),
-                list.Count == 0 ? 0m : list.Average(item => item.EffectiveAverageRate));
+                list.Count == 0 ? 0m : list.Average(item => item.AverageEffectiveRate));
         }
 
         public static DashboardSummary FromClients(IEnumerable<ClientPerformanceDto> data)

@@ -58,6 +58,7 @@ public sealed class DailyAnalyticsDto
     public int OperationsCount { get; init; }
     public decimal TotalFaceValue { get; init; }
     public decimal TotalDiscountValue { get; init; }
+    public decimal AverageEffectiveRate { get; init; }
     public decimal EffectiveAverageRate { get; init; }
 }
 
@@ -69,6 +70,7 @@ public sealed class MonthlyAnalyticsDto
     public decimal TotalFaceValue { get; init; }
     public decimal TotalDiscountValue { get; init; }
     public decimal EffectiveAverageRate { get; init; }
+    public decimal AverageEffectiveRate { get; init; }
 }
 
 public sealed class ClientPerformanceDto

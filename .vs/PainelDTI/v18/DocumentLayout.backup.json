@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Source OmniSaaS\\PainelDTI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Source OmniSaaS\\PainelDTI\\obj\\Debug\\net8.0\\PainelDTI.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:obj\\Debug\\net8.0\\PainelDTI.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\pages\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:pages\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\wwwroot\\css\\stylesheet.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:wwwroot\\css\\stylesheet.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|d:\\source omnisaas\\paineldti\\pages\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5AFD4A4C-42D6-FAC0-C701-9AB66B9D52E6}|PainelDTI.csproj|solutionrelative:pages\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,20 +34,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "PainelDTI.AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\obj\\Debug\\net8.0\\PainelDTI.AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "obj\\Debug\\net8.0\\PainelDTI.AssemblyInfo.cs",
+              "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\obj\\Debug\\net8.0\\PainelDTI.AssemblyInfo.cs",
+              "RelativeToolTip": "obj\\Debug\\net8.0\\PainelDTI.AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T12:33:43.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "_Layoutlogin.cshtml",
               "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Shared\\_Layoutlogin.cshtml",
               "RelativeDocumentMoniker": "Pages\\Shared\\_Layoutlogin.cshtml",
               "ToolTip": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Shared\\_Layoutlogin.cshtml",
               "RelativeToolTip": "Pages\\Shared\\_Layoutlogin.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-15T12:18:26.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "StyleSheet.css",
               "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\wwwroot\\css\\StyleSheet.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\StyleSheet.css",
@@ -56,7 +73,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\Source OmniSaaS\\PainelDTI\\Pages\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\Login.cshtml",
